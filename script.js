@@ -22,6 +22,7 @@
   // ---------- Scrollspy ----------
   var sections = document.querySelectorAll("[data-section]");
   var navLinks = document.querySelectorAll(".sticky-nav__link[data-scroll-to]");
+  var scrollSpyTriggerY = STICKY_NAV_HEIGHT + 20;
 
   function setActiveLink(id) {
     navLinks.forEach(function (link) {
@@ -34,20 +35,26 @@
     });
   }
 
-  if (sections.length && navLinks.length) {
-    var spyObserver = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            setActiveLink(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: "-" + (STICKY_NAV_HEIGHT + 20) + "px 0px -60% 0px", threshold: 0 }
-    );
+  function updateActiveSection() {
+    if (!navLinks.length) return;
+    var best = null;
+    var bestTop = -Infinity;
     sections.forEach(function (section) {
-      if (section.id) spyObserver.observe(section);
+      if (!section.id) return;
+      var rect = section.getBoundingClientRect();
+      if (rect.top <= scrollSpyTriggerY && rect.top > bestTop) {
+        best = section;
+        bestTop = rect.top;
+      }
     });
+    if (best) setActiveLink(best.id);
+  }
+
+  if (sections.length && navLinks.length) {
+    window.addEventListener("scroll", function () {
+      updateActiveSection();
+    }, { passive: true });
+    updateActiveSection();
   }
 
   // ---------- Reading progress bar ----------
@@ -68,20 +75,24 @@
   function scrollToTarget(selector) {
     var el = document.querySelector(selector);
     if (!el) return;
-    var y = el.getBoundingClientRect().top + window.pageYOffset - STICKY_NAV_HEIGHT;
-    window.scrollTo({ top: y, behavior: "smooth" });
+    // scroll-margin-top on sections already accounts for sticky nav
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
-  document.querySelectorAll("[data-scroll-to]").forEach(function (node) {
-    node.addEventListener("click", function (e) {
-      var target = this.getAttribute("data-scroll-to");
-      if (!target || target === "#") return;
-      if (node.tagName.toLowerCase() === "a") {
-        e.preventDefault();
-      }
-      scrollToTarget(target);
+  var scrollToNodes = document.querySelectorAll("[data-scroll-to]");
+  if (!window.__cbsdScrollToBound) {
+    window.__cbsdScrollToBound = true;
+    scrollToNodes.forEach(function (node) {
+      node.addEventListener("click", function (e) {
+        var target = this.getAttribute("data-scroll-to");
+        if (!target || target === "#") return;
+        if (this.tagName.toLowerCase() === "a") {
+          e.preventDefault();
+        }
+        scrollToTarget(target);
+      });
     });
-  });
+  }
 
   // ---------- Section enter animation (is-visible) ----------
   var sectionObserver = new IntersectionObserver(
