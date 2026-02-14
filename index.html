@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>База знаний тренера CBSD</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Reading progress bar -->
+  <div class="progress-bar" role="presentation" aria-hidden="true"></div>
+
+  <!-- Sticky nav: appears after first scroll -->
+  <nav class="sticky-nav" id="sticky-nav" aria-label="Навигация по разделам">
+    <div class="sticky-nav__inner">
+      <a class="sticky-nav__link" href="#mission" data-scroll-to="#mission">Миссия и ценности</a>
+      <a class="sticky-nav__link" href="#trainer-pack" data-scroll-to="#trainer-pack">Пакет тренера</a>
+      <a class="sticky-nav__link" href="#growth" data-scroll-to="#growth">Рост и развитие</a>
+      <a class="sticky-nav__link" href="#money-docs" data-scroll-to="#money-docs">Деньги и документы</a>
+      <a class="sticky-nav__link" href="#contacts" data-scroll-to="#contacts">Контакты</a>
+      <a class="sticky-nav__link sticky-nav__link--top" href="#top" data-scroll-to="#top">Наверх</a>
+    </div>
+  </nav>
+
+  <!-- Fixed background layer -->
+  <div class="bg" aria-hidden="true"></div>
+  <div class="bg-overlay" aria-hidden="true"></div>
+
+  <header class="hero" id="top">
+    <div class="hero__inner">
+      <img class="logo" src="assets/img/logo/logo_white.svg" alt="CBSD" />
+      <h1 class="hero__title">База знаний тренера CBSD</h1>
+
+      <nav class="hero__nav" aria-label="Разделы">
+        <button class="btn" type="button" data-scroll-to="#mission">Миссия и ценности</button>
+        <button class="btn" type="button" data-scroll-to="#trainer-pack">Пакет тренера</button>
+        <button class="btn" type="button" data-scroll-to="#growth">Рост и развитие</button>
+        <button class="btn" type="button" data-scroll-to="#money-docs">Деньги и документы</button>
+        <button class="btn" type="button" data-scroll-to="#contacts">Контакты</button>
+      </nav>
+
+      <div class="hero__hint">
+        <a class="link" href="#mission">Прокрутить вниз</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <!-- Секция: Миссия и ценности -->
+    <section class="section" id="mission" data-section>
+      <div class="section__inner">
+        <header class="section__header">
+          <h2 class="section__title">Миссия и ценности</h2>
+          <p class="section__desc">Краткое описание раздела (опционально).</p>
+        </header>
+        <div class="section__modules">
+          <div class="module module--text">
+            <div class="module__content">
+              <p>Текстовый блок. Здесь — основной контент о миссии и ценностях CBSD.</p>
+            </div>
+          </div>
+          <!-- Шаблон видео (embed). Без poster — только кнопка. С poster — добавить data-video-poster="URL", img.module__video-poster и button.module__video-play с иконкой (см. секцию Пакет тренера).
+          <div class="module module--video" data-video-type="embed" data-video-src="https://www.youtube.com/embed/VIDEO_ID">
+            <div class="module__video-placeholder">
+              <button type="button" class="btn module__video-trigger">Смотреть</button>
+            </div>
+          </div>
+          -->
+          <!-- Шаблон видео (ссылка): data-video-type="link", href в data-video-src
+          <div class="module module--video" data-video-type="link" data-video-src="https://example.com/video">
+            <a class="btn module__video-link" href="https://example.com/video" target="_blank" rel="noopener">Смотреть видео</a>
+          </div>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция: Пакет тренера -->
+    <section class="section" id="trainer-pack" data-section>
+      <div class="section__inner">
+        <header class="section__header">
+          <h2 class="section__title">Пакет тренера</h2>
+        </header>
+        <div class="section__modules">
+          <div class="module module--text">
+            <div class="module__content">
+              <p>Контент пакета тренера: материалы, чек-листы, инструкции.</p>
+            </div>
+          </div>
+          <div class="module module--video" data-video-type="embed" data-video-src="https://www.youtube.com/embed/dQw4w9WgXcQ" data-video-poster="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
+            <div class="module__video-placeholder">
+              <img class="module__video-poster" alt="" role="presentation" />
+              <button type="button" class="module__video-play" aria-label="Смотреть">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="module module--download">
+            <a class="btn btn--download" href="assets/demo-presentation.pdf" download>Скачать презентацию</a>
+            <p class="module__caption">PDF, 2.5 МБ · Обновлено 01.02.2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция: Рост и развитие -->
+    <section class="section" id="growth" data-section>
+      <div class="section__inner">
+        <header class="section__header">
+          <h2 class="section__title">Рост и развитие</h2>
+        </header>
+        <div class="section__modules">
+          <div class="module module--text">
+            <div class="module__content">
+              <p>Текст о возможностях роста и развития для тренеров.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция: Деньги и документы -->
+    <section class="section" id="money-docs" data-section>
+      <div class="section__inner">
+        <header class="section__header">
+          <h2 class="section__title">Деньги и документы</h2>
+        </header>
+        <div class="section__modules">
+          <div class="module module--text">
+            <div class="module__content">
+              <p>Информация о документах и оплате.</p>
+            </div>
+          </div>
+          <div class="module module--download">
+            <a class="btn btn--download" href="#">Скачать презентацию</a>
+            <p class="module__caption">PPTX · дата обновления</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция: Контакты -->
+    <section class="section" id="contacts" data-section>
+      <div class="section__inner">
+        <header class="section__header">
+          <h2 class="section__title">Контакты</h2>
+        </header>
+        <div class="section__modules">
+          <div class="module module--text">
+            <div class="module__content">
+              <p>По вопросам: <a class="link" href="mailto:j_selezneva@cbsd.com">j_selezneva@cbsd.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Command Palette: stub for future Cmd+K / Ctrl+K -->
+  <div class="command-palette" id="command-palette" aria-hidden="true" hidden>
+    <div class="command-palette__overlay"></div>
+    <div class="command-palette__panel"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
