@@ -186,16 +186,6 @@ body {
   .section {
     scroll-margin-top: 0;
   }
-  .sticky-nav__inner {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px 8px;
-    justify-items: center;
-  }
-  .sticky-nav__link {
-    font-size: 0.8rem;
-    padding: 5px 8px;
-  }
 }
 @media (max-width: 480px) {
   .sticky-nav__inner {
@@ -508,27 +498,6 @@ body {
 .trainer-standard__video iframe {
   display: block;
 }
-.trainer-standard__text {
-  height: auto;
-  display: none;
-}
-.trainer-standard__text-inner {
-  max-width: 32rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  row-gap: var(--space-1);
-  font-size: clamp(0.8rem, 0.9vw, 0.9rem);
-  line-height: 1.35;
-  text-align: left;
-}
-.trainer-standard__text-inner p {
-  margin: 0 0 0.5rem;
-}
-.trainer-standard__text-inner p:last-child {
-  margin-bottom: 0;
-}
 
 @media (max-width: 700px) {
   .trainer-standard__grid {
@@ -541,16 +510,6 @@ body {
   .trainer-standard__grid {
     grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
   }
-
-  .trainer-standard__text-inner {
-    font-size: 0.78rem;
-    line-height: 1.33;
-    row-gap: 0.4rem;
-  }
-
-  .trainer-standard__text-inner p {
-    margin: 0 0 0.4rem;
-  }
 }
 
 /* Отступ между двумя блоками в "Пакет тренера" */
@@ -558,17 +517,6 @@ body {
   margin-bottom: var(--space-5);
 }
 
-/* Более компактный текст "Методологического стандарта" на широких экранах */
-@media (min-width: 1024px) {
-  .trainer-standard__text-inner {
-    font-size: 0.8rem;
-    line-height: 1.33;
-  }
-
-  .trainer-standard__text-inner p {
-    margin: 0 0 0.5rem;
-  }
-}
 
 /* ========== Modules ========== */
 .module__content {
@@ -607,35 +555,6 @@ body {
   background: transparent;
   border: none;
   box-shadow: none;
-}
-.module__video-placeholder {
-  position: relative;
-  z-index: 1;
-  padding: var(--space-3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 100%;
-  min-height: 100%;
-}
-.module__video-trigger {
-  margin: 0;
-}
-.module__video-container {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-.module__video-container.is-visible {
-  opacity: 1;
-}
-.module__video-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
 }
 /* Video embed wrapper (Rutube) */
 .module--video-embed {
@@ -712,53 +631,6 @@ body {
   letter-spacing: 0.01em;
 }
 
-/* Video: poster + play icon + fade-in */
-.module--video .module__video-poster {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-/* IV.1 Subtle overlay on poster */
-.module--video .module__video-placeholder::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.06);
-  pointer-events: none;
-  z-index: 0;
-}
-.module--video .module__video-play {
-  position: relative;
-  z-index: 1;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.95);
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--btn-bg);
-  transition: transform var(--ease-out), background var(--ease-out), box-shadow var(--ease-out);
-  box-shadow: var(--shadow-module);
-}
-.module--video .module__video-play:hover {
-  transform: scale(1.05);
-  background: #fff;
-  box-shadow: var(--shadow-section);
-}
-.module--video .module__video-play:active {
-  transform: scale(0.98);
-}
-.module--video .module__video-play svg {
-  width: 24px;
-  height: 24px;
-  margin-left: 2px;
-}
 
 /* Tablet: normalize video containers and layouts (700–1023px) */
 @media (min-width: 700px) and (max-width: 1023px) {
