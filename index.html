@@ -54,26 +54,17 @@
       <div class="section__inner">
         <header class="section__header">
           <h2 class="section__title">Миссия и ценности</h2>
-          <p class="section__desc">Краткое описание раздела (опционально).</p>
         </header>
-        <div class="section__modules">
-          <div class="module module--text">
-            <div class="module__content">
-              <p>Текстовый блок. Здесь — основной контент о миссии и ценностях CBSD.</p>
+        <div class="section__modules section__modules--mission">
+          <div class="module module--video module--video-embed">
+            <div class="module__video-embed-wrapper">
+              <iframe width="720" height="405" src="https://rutube.ru/play/embed/c230390cfc1d7665bb44f5636180b7b7/?p=rao1B-s0z9nIBJ_tJCiJog" style="border: none;" allow="clipboard-write; autoplay" allowFullScreen></iframe>
             </div>
           </div>
-          <!-- Шаблон видео (embed). Без poster — только кнопка. С poster — добавить data-video-poster="URL", img.module__video-poster и button.module__video-play с иконкой (см. секцию Пакет тренера).
-          <div class="module module--video" data-video-type="embed" data-video-src="https://www.youtube.com/embed/VIDEO_ID">
-            <div class="module__video-placeholder">
-              <button type="button" class="btn module__video-trigger">Смотреть</button>
-            </div>
+          <div class="module module--buttons">
+            <a class="btn btn--download" href="assets/docs/Company_Presentation_CBSD_2026.pptx" download>Презентация о компании</a>
+            <a class="btn btn--download" href="https://25.cbsd.ru/history_of_company" target="_blank" rel="noopener">Интерактивная история компании CBSD</a>
           </div>
-          -->
-          <!-- Шаблон видео (ссылка): data-video-type="link", href в data-video-src
-          <div class="module module--video" data-video-type="link" data-video-src="https://example.com/video">
-            <a class="btn module__video-link" href="https://example.com/video" target="_blank" rel="noopener">Смотреть видео</a>
-          </div>
-          -->
         </div>
       </div>
     </section>
@@ -128,15 +119,29 @@
         <header class="section__header">
           <h2 class="section__title">Деньги и документы</h2>
         </header>
-        <div class="section__modules">
-          <div class="module module--text">
-            <div class="module__content">
-              <p>Информация о документах и оплате.</p>
+        <div class="section__modules section__modules--money-docs">
+          <div class="module module--video module--video-embed">
+            <div class="module__video-embed-wrapper">
+              <iframe
+                width="720"
+                height="405"
+                src="https://rutube.ru/play/embed/69fc99066fe781e3f9353a9c203766a8/?p=Ukc17gbEJKE_qZfCquHZJA"
+                style="border: none;"
+                allow="clipboard-write; autoplay"
+                allowFullScreen
+              ></iframe>
             </div>
+            <p class="module__caption">Инструкция по заполнению таймшитов</p>
           </div>
-          <div class="module module--download">
-            <a class="btn btn--download" href="#">Скачать презентацию</a>
-            <p class="module__caption">PPTX · дата обновления</p>
+          <div class="module module--buttons">
+            <a
+              class="btn btn--download"
+              href="https://online.cbsd.ru/docs/pub/51669a37b20b51017c6646bc0973029e/default/?&"
+              target="_blank"
+              rel="noopener"
+            >
+              Документы для оформления
+            </a>
           </div>
         </div>
       </div>
@@ -164,6 +169,10 @@
     <div class="command-palette__overlay"></div>
     <div class="command-palette__panel"></div>
   </div>
+
+  <footer class="footer">
+    <p class="footer__copy">© 2026 CBSD</p>
+  </footer>
 
   <script src="script.js?v=2"></script>
 </body>

@@ -183,6 +183,12 @@ body {
 }
 
 @media (max-width: 700px) {
+  .sticky-nav {
+    display: none;
+  }
+  .section {
+    scroll-margin-top: 0;
+  }
   .sticky-nav__inner {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -457,6 +463,21 @@ body {
   gap: var(--space-4);
 }
 
+/* Mission / Money&Docs: 2-column layout on desktop, 1-column on mobile */
+.section__modules--mission,
+.section__modules--money-docs {
+  display: grid;
+  grid-template-columns: 1.75fr 0.75fr;
+  gap: var(--space-4);
+  align-items: center;
+}
+@media (max-width: 700px) {
+  .section__modules--mission,
+  .section__modules--money-docs {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ========== Modules ========== */
 .module__content {
   color: var(--muted);
@@ -513,6 +534,68 @@ body {
 }
 .module__video-link {
   margin: 0;
+}
+
+/* Video embed wrapper (Rutube) */
+.module--video-embed {
+  min-height: 0;
+  display: block;
+}
+.module__video-embed-wrapper {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.module__video-embed-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Buttons container (Mission & Money&Docs only) */
+.section#mission .module--buttons,
+.section#money-docs .module--buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.section#mission .module--buttons .btn,
+.section#money-docs .module--buttons .btn {
+  width: 100%;
+  max-width: clamp(260px, 28vw, 400px);
+  padding: 10px var(--space-3);
+  box-shadow: none;
+}
+
+.section#mission .module--buttons .btn--download,
+.section#money-docs .module--buttons .btn--download {
+  min-width: 0;
+}
+
+@media (max-width: 700px) {
+  .section#mission .module--buttons,
+  .section#money-docs .module--buttons {
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .section#mission .module--buttons .btn,
+  .section#money-docs .module--buttons .btn {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .section#mission .module--buttons .btn,
+  .section#money-docs .module--buttons .btn {
+    min-height: 44px;
+  }
 }
 
 /* Download module */
@@ -612,4 +695,15 @@ body {
   opacity: 0;
   transform: translateX(-50%) translateY(-8px);
   transition: opacity var(--ease-out), transform var(--ease-out);
+}
+
+/* ========== Footer ========== */
+.footer {
+  padding: var(--space-6) var(--pad);
+  text-align: center;
+}
+.footer__copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
 }
