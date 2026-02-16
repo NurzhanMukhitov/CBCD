@@ -299,26 +299,9 @@ body {
 .hero__nav .btn {
   min-width: 0;
 }
-.hero__nav .btn:nth-child(4) {
-  grid-column: 1;
-}
-.hero__nav .btn:nth-child(5) {
-  grid-column: 2;
-}
-
 .hero__hint {
   margin-top: var(--space-3);
   opacity: 0.9;
-}
-
-@media (max-width: 860px) {
-  .hero__nav {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .hero__nav .btn:nth-child(4),
-  .hero__nav .btn:nth-child(5) {
-    grid-column: span 1;
-  }
 }
 @media (max-width: 640px) {
   .hero__nav {
@@ -463,9 +446,10 @@ body {
   gap: var(--space-4);
 }
 
-/* Mission / Money&Docs: 2-column layout on desktop, 1-column on mobile */
+/* Mission / Money&Docs/Trainer: 2-column layout on desktop, 1-column on mobile */
 .section__modules--mission,
-.section__modules--money-docs {
+.section__modules--money-docs,
+.section__modules--trainer {
   display: grid;
   grid-template-columns: 1.75fr 0.75fr;
   gap: var(--space-4);
@@ -473,8 +457,122 @@ body {
 }
 @media (max-width: 700px) {
   .section__modules--mission,
-  .section__modules--money-docs {
+  .section__modules--money-docs,
+  .section__modules--trainer {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet tweaks for верхнего блока "Пакет тренера" (700–1023px) */
+@media (min-width: 700px) and (max-width: 1023px) {
+  section#trainer-pack .section__modules--trainer {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+}
+
+/* Subtitle inside trainer/text blocks */
+.section__subtitle {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: var(--line-height-heading);
+  color: var(--text);
+  text-align: left;
+}
+
+/* Trainer Pack: блок "Методологический стандарт" */
+.trainer-standard {
+  margin-top: var(--space-5);
+}
+.trainer-standard__title {
+  margin: 0 0 var(--space-3);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+}
+.trainer-standard__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.75fr) minmax(0, 0.75fr);
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+.trainer-standard__video {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  min-height: 0;
+  display: block;
+  align-self: flex-start;
+}
+.trainer-standard__video .module__video-embed-wrapper {
+  margin: 0;
+}
+.trainer-standard__video iframe {
+  display: block;
+}
+.trainer-standard__text {
+  height: auto;
+  display: none;
+}
+.trainer-standard__text-inner {
+  max-width: 32rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  row-gap: var(--space-1);
+  font-size: clamp(0.8rem, 0.9vw, 0.9rem);
+  line-height: 1.35;
+  text-align: left;
+}
+.trainer-standard__text-inner p {
+  margin: 0 0 0.5rem;
+}
+.trainer-standard__text-inner p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .trainer-standard__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet tweaks for "Методологический стандарт" (700–1023px) */
+@media (min-width: 700px) and (max-width: 1023px) {
+  .trainer-standard__grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+
+  .trainer-standard__text-inner {
+    font-size: 0.78rem;
+    line-height: 1.33;
+    row-gap: 0.4rem;
+  }
+
+  .trainer-standard__text-inner p {
+    margin: 0 0 0.4rem;
+  }
+}
+
+/* Отступ между двумя блоками в "Пакет тренера" */
+.section#trainer-pack .section__modules--trainer:first-of-type {
+  margin-bottom: var(--space-5);
+}
+
+/* Более компактный текст "Методологического стандарта" на широких экранах */
+@media (min-width: 1024px) {
+  .trainer-standard__text-inner {
+    font-size: 0.8rem;
+    line-height: 1.33;
+  }
+
+  .trainer-standard__text-inner p {
+    margin: 0 0 0.5rem;
   }
 }
 
@@ -502,6 +600,19 @@ body {
   border: 1px solid var(--panel-border);
   box-shadow: var(--shadow-module);
   overflow: hidden;
+}
+
+/* Override card styles for видео в секции "Пакет тренера" (оба плеера) */
+.section#trainer-pack .section__modules--trainer .module--video,
+.section#trainer-pack .trainer-standard__video {
+  min-height: 0;
+  display: block;
+  line-height: 0;
+  align-items: stretch;
+  justify-content: flex-start;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 .module__video-placeholder {
   position: relative;
@@ -554,9 +665,10 @@ body {
   border: none;
 }
 
-/* Buttons container (Mission & Money&Docs only) */
+/* Buttons container (Mission, Money&Docs, Trainer) */
 .section#mission .module--buttons,
-.section#money-docs .module--buttons {
+.section#money-docs .module--buttons,
+.section#trainer-pack .module--buttons {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -565,7 +677,8 @@ body {
 }
 
 .section#mission .module--buttons .btn,
-.section#money-docs .module--buttons .btn {
+.section#money-docs .module--buttons .btn,
+.section#trainer-pack .module--buttons .btn {
   width: 100%;
   max-width: clamp(260px, 28vw, 400px);
   padding: 10px var(--space-3);
@@ -573,19 +686,22 @@ body {
 }
 
 .section#mission .module--buttons .btn--download,
-.section#money-docs .module--buttons .btn--download {
+.section#money-docs .module--buttons .btn--download,
+.section#trainer-pack .module--buttons .btn--download {
   min-width: 0;
 }
 
 @media (max-width: 700px) {
   .section#mission .module--buttons,
-  .section#money-docs .module--buttons {
+  .section#money-docs .module--buttons,
+  .section#trainer-pack .module--buttons {
     justify-content: flex-start;
     align-items: stretch;
   }
 
   .section#mission .module--buttons .btn,
-  .section#money-docs .module--buttons .btn {
+  .section#money-docs .module--buttons .btn,
+  .section#trainer-pack .module--buttons .btn {
     width: 100%;
     max-width: none;
   }
@@ -593,7 +709,8 @@ body {
 
 @media (max-width: 640px) {
   .section#mission .module--buttons .btn,
-  .section#money-docs .module--buttons .btn {
+  .section#money-docs .module--buttons .btn,
+  .section#trainer-pack .module--buttons .btn {
     min-height: 44px;
   }
 }
@@ -658,6 +775,37 @@ body {
   width: 24px;
   height: 24px;
   margin-left: 2px;
+}
+
+/* Tablet: normalize video containers and layouts (700–1023px) */
+@media (min-width: 700px) and (max-width: 1023px) {
+  /* Unified behavior for all embedded video modules */
+  .module--video.module--video-embed {
+    display: block;
+    min-height: 0;
+    line-height: 0;
+  }
+
+  .module__video-embed-wrapper {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .module__video-embed-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+  }
+
+  /* Unified 2-column layout for "video + content" sections */
+  .section__modules--mission,
+  .section__modules--trainer,
+  .section__modules--money-docs,
+  .trainer-standard__grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
 }
 
 /* Command Palette (stub for future Cmd+K) */

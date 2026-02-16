@@ -20,6 +20,7 @@
       <a class="sticky-nav__link" href="#trainer-pack" data-scroll-to="#trainer-pack">Пакет тренера</a>
       <a class="sticky-nav__link" href="#growth" data-scroll-to="#growth">Рост и развитие</a>
       <a class="sticky-nav__link" href="#money-docs" data-scroll-to="#money-docs">Деньги и документы</a>
+      <a class="sticky-nav__link" href="#community" data-scroll-to="#community">Сообщество для тренеров</a>
       <a class="sticky-nav__link" href="#contacts" data-scroll-to="#contacts">Контакты</a>
       <a class="sticky-nav__link sticky-nav__link--top" href="#top" data-scroll-to="#top">Наверх</a>
     </div>
@@ -39,6 +40,7 @@
         <button class="btn" type="button" data-scroll-to="#trainer-pack">Пакет тренера</button>
         <button class="btn" type="button" data-scroll-to="#growth">Рост и развитие</button>
         <button class="btn" type="button" data-scroll-to="#money-docs">Деньги и документы</button>
+        <button class="btn" type="button" data-scroll-to="#community">Сообщество для тренеров</button>
         <button class="btn" type="button" data-scroll-to="#contacts">Контакты</button>
       </nav>
 
@@ -75,23 +77,56 @@
         <header class="section__header">
           <h2 class="section__title">Пакет тренера</h2>
         </header>
-        <div class="section__modules">
-          <div class="module module--text">
-            <div class="module__content">
-              <p>Контент пакета тренера: материалы, чек-листы, инструкции.</p>
+
+        <!-- Блок 1: Видео + кнопка -->
+        <div class="section__modules section__modules--trainer">
+          <div class="module module--video module--video-embed">
+            <div class="module__video-embed-wrapper">
+              <iframe
+                width="720"
+                height="405"
+                src="https://rutube.ru/play/embed/8c319ce3a343ec2a39a245e5d9420a41/?p=6K-7ay79nCZVAbBmpImSVw"
+                style="border: none;"
+                allow="clipboard-write; autoplay"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
-          <div class="module module--video" data-video-type="embed" data-video-src="https://www.youtube.com/embed/dQw4w9WgXcQ" data-video-poster="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
-            <div class="module__video-placeholder">
-              <img class="module__video-poster" alt="" role="presentation" />
-              <button type="button" class="module__video-play" aria-label="Смотреть">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-              </button>
-            </div>
+
+          <div class="module module--buttons">
+            <a
+              class="btn btn--download"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              Стандарты по подготовке тренингов
+            </a>
           </div>
-          <div class="module module--download">
-            <a class="btn btn--download" href="assets/demo-presentation.pdf" download>Скачать презентацию</a>
-            <p class="module__caption">PDF, 2.5 МБ · Обновлено 01.02.2025</p>
+        </div>
+
+        <!-- Блок 2: Методологический стандарт -->
+        <div class="trainer-standard">
+          <h3 class="trainer-standard__title">Методологический стандарт</h3>
+
+          <div class="trainer-standard__grid">
+            <div class="trainer-standard__video module module--video module--video-embed">
+              <div class="module__video-embed-wrapper">
+                <iframe
+                  width="720"
+                  height="405"
+                  src="https://rutube.ru/play/embed/fdb4149cd58a7dfb4c0ee800e9a16e17/?p=i_GvbnFaB21Vmn0T9qdRkQ"
+                  style="border: none;"
+                  allow="clipboard-write; autoplay"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </div>
+
+            <div class="trainer-standard__text module module--text">
+              <div class="trainer-standard__text-inner module__content">
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -142,6 +177,22 @@
             >
               Документы для оформления
             </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция: Сообщество для тренеров -->
+    <section class="section" id="community" data-section>
+      <div class="section__inner">
+        <header class="section__header">
+          <h2 class="section__title">Сообщество для тренеров</h2>
+        </header>
+        <div class="section__modules">
+          <div class="module module--text">
+            <div class="module__content">
+              <p>СКОРО ПОЯВИТСЯ ТЕКСТ</p>
+            </div>
           </div>
         </div>
       </div>
