@@ -2,16 +2,22 @@
   "use strict";
 
   var STICKY_NAV_HEIGHT = 56;
-  var ROOT = document.documentElement;
 
   // ---------- Sticky nav visibility ----------
   var stickyNav = document.getElementById("sticky-nav");
+  var scrollToTopBtn = document.querySelector(".scroll-to-top");
   var hero = document.querySelector(".hero");
-  if (stickyNav && hero) {
+  if (hero) {
     var navObserver = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          stickyNav.classList.toggle("is-visible", !entry.isIntersecting);
+          var isScrolled = !entry.isIntersecting;
+          if (stickyNav) {
+            stickyNav.classList.toggle("is-visible", isScrolled);
+          }
+          if (scrollToTopBtn) {
+            scrollToTopBtn.classList.toggle("is-visible", isScrolled);
+          }
         });
       },
       { threshold: 0, rootMargin: "0px 0px 0px 0px" }
@@ -90,6 +96,8 @@
           e.preventDefault();
         }
         scrollToTarget(target);
+        // Обновляем hash в URL после прокрутки
+        history.replaceState(null, "", target);
       });
     });
   }
@@ -107,40 +115,6 @@
   );
   sections.forEach(function (section) {
     sectionObserver.observe(section);
-  });
-
-  // ---------- Video: lazy load embed (with optional poster + fade-in) ----------
-  document.querySelectorAll('.module--video[data-video-type="embed"]').forEach(function (module) {
-    var placeholder = module.querySelector(".module__video-placeholder");
-    var trigger = module.querySelector(".module__video-trigger");
-    var playBtn = module.querySelector(".module__video-play");
-    var posterImg = module.querySelector(".module__video-poster");
-    var src = module.getAttribute("data-video-src");
-    var posterUrl = module.getAttribute("data-video-poster");
-    if (!placeholder || !src) return;
-
-    if (posterUrl && posterImg) {
-      posterImg.src = posterUrl;
-    }
-    var runPlay = function () {
-      var container = document.createElement("div");
-      container.className = "module__video-container";
-      var iframe = document.createElement("iframe");
-      iframe.src = src;
-      iframe.title = "Видео";
-      container.appendChild(iframe);
-      module.appendChild(container);
-      placeholder.style.display = "none";
-      requestAnimationFrame(function () {
-        container.classList.add("is-visible");
-      });
-    };
-    if (trigger) {
-      trigger.addEventListener("click", runPlay);
-    }
-    if (playBtn) {
-      playBtn.addEventListener("click", runPlay);
-    }
   });
 
   // ---------- Command Palette: stub for future Cmd+K / Ctrl+K ----------

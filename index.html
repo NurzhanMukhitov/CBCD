@@ -22,7 +22,6 @@
       <a class="sticky-nav__link" href="#money-docs" data-scroll-to="#money-docs">Деньги и документы</a>
       <a class="sticky-nav__link" href="#community" data-scroll-to="#community">Сообщество для тренеров</a>
       <a class="sticky-nav__link" href="#contacts" data-scroll-to="#contacts">Контакты</a>
-      <a class="sticky-nav__link sticky-nav__link--top" href="#top" data-scroll-to="#top">Наверх</a>
     </div>
   </nav>
 
@@ -30,7 +29,7 @@
   <div class="bg" aria-hidden="true"></div>
   <div class="bg-overlay" aria-hidden="true"></div>
 
-  <header class="hero" id="top">
+  <header class="hero" id="main">
     <div class="hero__inner">
       <img class="logo" src="assets/img/logo/logo_white.svg" alt="CBSD" />
       <h1 class="hero__title">База знаний тренера CBSD</h1>
@@ -43,10 +42,6 @@
         <button class="btn" type="button" data-scroll-to="#community">Сообщество для тренеров</button>
         <button class="btn" type="button" data-scroll-to="#contacts">Контакты</button>
       </nav>
-
-      <div class="hero__hint">
-        <a class="link" href="#mission">Прокрутить вниз</a>
-      </div>
     </div>
   </header>
 
@@ -60,7 +55,7 @@
         <div class="section__modules section__modules--mission">
           <div class="module module--video module--video-embed">
             <div class="module__video-embed-wrapper">
-              <iframe width="720" height="405" src="https://rutube.ru/play/embed/c230390cfc1d7665bb44f5636180b7b7/?p=rao1B-s0z9nIBJ_tJCiJog" style="border: none;" allow="clipboard-write; autoplay" allowFullScreen></iframe>
+              <iframe src="https://rutube.ru/play/embed/c230390cfc1d7665bb44f5636180b7b7/?p=rao1B-s0z9nIBJ_tJCiJog" style="border: none;" allow="clipboard-write; autoplay" allowFullScreen></iframe>
             </div>
           </div>
           <div class="module module--buttons">
@@ -83,8 +78,6 @@
           <div class="module module--video module--video-embed">
             <div class="module__video-embed-wrapper">
               <iframe
-                width="720"
-                height="405"
                 src="https://rutube.ru/play/embed/8c319ce3a343ec2a39a245e5d9420a41/?p=6K-7ay79nCZVAbBmpImSVw"
                 style="border: none;"
                 allow="clipboard-write; autoplay"
@@ -113,8 +106,6 @@
             <div class="trainer-standard__video module module--video module--video-embed">
               <div class="module__video-embed-wrapper">
                 <iframe
-                  width="720"
-                  height="405"
                   src="https://rutube.ru/play/embed/fdb4149cd58a7dfb4c0ee800e9a16e17/?p=i_GvbnFaB21Vmn0T9qdRkQ"
                   style="border: none;"
                   allow="clipboard-write; autoplay"
@@ -158,8 +149,6 @@
           <div class="module module--video module--video-embed">
             <div class="module__video-embed-wrapper">
               <iframe
-                width="720"
-                height="405"
                 src="https://rutube.ru/play/embed/69fc99066fe781e3f9353a9c203766a8/?p=Ukc17gbEJKE_qZfCquHZJA"
                 style="border: none;"
                 allow="clipboard-write; autoplay"
@@ -224,6 +213,13 @@
   <footer class="footer">
     <p class="footer__copy">© 2026 CBSD</p>
   </footer>
+
+  <!-- Floating "Наверх" button -->
+  <a class="scroll-to-top" href="#main" data-scroll-to="#main" aria-label="Наверх" title="Наверх">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </a>
 
   <script src="script.js?v=2"></script>
 </body>
