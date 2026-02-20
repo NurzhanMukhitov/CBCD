@@ -86,21 +86,18 @@
   }
 
   var scrollToNodes = document.querySelectorAll("[data-scroll-to]");
-  if (!window.__cbsdScrollToBound) {
-    window.__cbsdScrollToBound = true;
-    scrollToNodes.forEach(function (node) {
-      node.addEventListener("click", function (e) {
-        var target = this.getAttribute("data-scroll-to");
-        if (!target || target === "#") return;
-        if (this.tagName.toLowerCase() === "a") {
-          e.preventDefault();
-        }
-        scrollToTarget(target);
-        // Обновляем hash в URL после прокрутки
-        history.replaceState(null, "", target);
-      });
+  scrollToNodes.forEach(function (node) {
+    node.addEventListener("click", function (e) {
+      var target = this.getAttribute("data-scroll-to");
+      if (!target || target === "#") return;
+      if (this.tagName.toLowerCase() === "a") {
+        e.preventDefault();
+      }
+      scrollToTarget(target);
+      // Обновляем hash в URL после прокрутки
+      history.replaceState(null, "", target);
     });
-  }
+  });
 
   // ---------- Section enter animation (is-visible) ----------
   var sectionObserver = new IntersectionObserver(

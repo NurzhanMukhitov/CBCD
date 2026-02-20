@@ -187,24 +187,13 @@ body {
     scroll-margin-top: 0;
   }
 }
-@media (max-width: 480px) {
-  .sticky-nav__inner {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px 6px;
-    padding: 8px var(--pad);
-  }
-  .sticky-nav__link {
-    font-size: 0.75rem;
-    padding: 4px 6px;
-  }
-}
 
 /* ========== Fixed background ========== */
 .bg {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background-image: url("assets/img/bg/fon.png");
+  background-image: url("assets/img/bg/fon.webp"), url("assets/img/bg/fon.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
